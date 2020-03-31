@@ -1,8 +1,8 @@
 const axios = require('axios');
 const { promisify } = require('util');
 let downloadGitRepo = require('download-git-repo');
-const { wrapperFunctionWithLoading, Inquirer } = require('./utils');
-const { downloadDirectory } = require('./constants');
+const { wrapperFunctionWithLoading, Inquirer } = require('../utils');
+const { downloadDirectory } = require('../constants');
 // eslint-disable-next-line consistent-return
 downloadGitRepo = promisify(downloadGitRepo);
 

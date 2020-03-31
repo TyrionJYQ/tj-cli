@@ -23,6 +23,7 @@ module.exports = {
     'global-require': 0,
     'prefer-spread': 0,
     'prefer-template': 0,
-    'no-param-reassign': 0
+    'no-param-reassign': 0,
+    'consistent-return': 0
   },
 };

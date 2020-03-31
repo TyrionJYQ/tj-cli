@@ -1,6 +1,6 @@
 const ora = require('ora');
 const Inquirer = require('inquirer')
-
+const log = require('./log')
 
 const wrapperFunctionWithLoading = (fn, description) => async (...args) => {
   const spinner = ora(description);
@@ -11,11 +11,12 @@ const wrapperFunctionWithLoading = (fn, description) => async (...args) => {
   return result
 }
 
-const downloadDirectory = (() => `${process.env[process.platform === 'darwin'
-  ? 'HOME' : 'USERPROFILE']}\\.tempalte`)()
+const downloadDirectory = `${process.env[process.platform === 'darwin'
+  ? 'HOME' : 'USERPROFILE']}\\.tempalte`
 
 module.exports = {
   wrapperFunctionWithLoading,
   Inquirer,
   downloadDirectory,
+  log,
 };
