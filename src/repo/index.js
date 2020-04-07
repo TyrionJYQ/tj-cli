@@ -6,16 +6,17 @@ const { downloadDirectory } = require('../constants');
 // eslint-disable-next-line consistent-return
 downloadGitRepo = promisify(downloadGitRepo);
 
-const fetchRepos = async () => {
-  try {
-    const { data } = await axios.get(
-      'https://api.github.com/users/TyrionJYQ/repos',
-    );
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
+// const fetchRepos = async () => {
+//   try {
+//     const { data } = await axios.get(
+//       'https://api.github.com/users/TyrionJYQ/repos',
+//     );
+//     return data
+//     // return data.filter((repo) => repo.name === 'vue-template');
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
 const fetchTags = async (repo) => {
   const { data } = await axios.get(
@@ -36,16 +37,16 @@ const downloadRepo = async (repo, tag) => {
 };
 
 const fetchRepo = async () => {
-  let repos = await wrapperFunctionWithLoading(
-    fetchRepos,
-    'downloading template...',
-  )();
-  repos = repos.map((repo) => repo.name);
+  // let repos = await wrapperFunctionWithLoading(
+  //   fetchRepos,
+  //   'downloading template...',
+  // )();
+  // repos = repos.map((repo) => repo.name)
   const { repo } = await Inquirer.prompt({
     name: 'repo',
     type: 'list',
     message: 'choose a repo',
-    choices: repos,
+    choices: ['vue-template'],
   });
 
   const tags = await wrapperFunctionWithLoading(
